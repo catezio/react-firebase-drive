@@ -1,14 +1,14 @@
 import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default function NavComp() {
     return (
         <Navbar bg='light' expand='lg' > 
             <Navbar.Brand as={Link} to='/' >
-                Drive
+              <Image src='logo50.png' roundedCircle /> Drive
             </Navbar.Brand>
-            <Nav>
+            <Nav style={{ position: 'relative' }}>
                 <Nav.Link as={Link} to='/user'>
                     Profile
                 </Nav.Link>

@@ -51,7 +51,7 @@ export default function AddFolder({ currentFolder }) {
                 onClick={openModal}
                 size='sm'
             >
-            <FontAwesomeIcon icon={faFolderPlus} />
+            <FontAwesomeIcon icon={faFolderPlus} size='2x'/>
             </Button>
             <Modal show={open} onHide={closeModal} >
                 <Form onSubmit={handleSubmit} >
