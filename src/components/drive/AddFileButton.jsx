@@ -6,7 +6,7 @@ import { useAuth } from '../../context/AuthContext'
 import { storage, database } from '../../firebase';
 import { ROOT_FOLDER } from '../hooks/useFolder';
 import { v4 as uuidV4 } from 'uuid';
-import { Toast, ProgressBar } from 'react-bootstrap';
+import { Toast, ProgressBar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 export default function AddFileButton({ currentFolder }) {
 
@@ -92,15 +92,24 @@ export default function AddFileButton({ currentFolder }) {
     }
 
     return (
-        <>
-            <label className='btn btn-outline-success btn-sm m-0 mr-2'>
-            <FontAwesomeIcon icon={faFileUpload} size='2x' />
-                <input 
-                    type="file" onChange={handleUpload} 
-                    style={{ opacity: 0, position: 'absolute', left: '-9999px'}} 
+        <>  
+            <OverlayTrigger
+                placement='bottom'
+                overlay={
+                    <Tooltip>
+                        Create New File
+                    </Tooltip>
+                }
+            >
+                <label className='btn btn-outline-success btn-sm m-0 mr-2'>
+                <FontAwesomeIcon icon={faFileUpload} size='2x' />
+                    <input 
+                        type="file" onChange={handleUpload} 
+                        style={{ opacity: 0, position: 'absolute', left: '-9999px'}} 
 
-                    />
-            </label>
+                        />
+                </label>
+            </OverlayTrigger>
             {uploadingFiles.length > 0 && 
                 ReactDOM.createPortal(
                     <div 

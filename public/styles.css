@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 
 * {
   font-family: "Roboto", Courier, monospace;
   font-weight: 400;
+}
+
+#nav {
+  font-family: "Montserrat", Courier, monospace;
+  font-weight: 600;
 }

@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Button, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -46,6 +46,14 @@ export default function AddFolder({ currentFolder }) {
 
     return (
         <>
+        <OverlayTrigger
+                placement={'bottom'}
+                overlay={
+                    <Tooltip>
+                        Create New Folder
+                    </Tooltip>
+                }
+            >
             <Button 
                 variant='outline-success' 
                 onClick={openModal}
@@ -53,6 +61,7 @@ export default function AddFolder({ currentFolder }) {
             >
             <FontAwesomeIcon icon={faFolderPlus} size='2x'/>
             </Button>
+        </OverlayTrigger>
             <Modal show={open} onHide={closeModal} >
                 <Form onSubmit={handleSubmit} >
                     <Modal.Body>

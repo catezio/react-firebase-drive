@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
-import { Card, Button, Alert } from 'react-bootstrap';
+import { Card, Button, Alert} from 'react-bootstrap';
 import { useAuth } from '../../context/AuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
 import Contain from './Contain';
 
@@ -25,6 +27,13 @@ export default function Profile() {
     return (
         <Contain>
             <Card>
+            <Button
+                variant='link'
+                onClick={() => history.goBack()}
+                style={{width: "50px"}}
+             >
+                 <FontAwesomeIcon icon={faArrowLeft} />
+             </Button>
                 <Card.Body>
                 <h2 className='text-center mb-4' >Profile</h2>
                 {error && <Alert variant='danger'>{error}</Alert>}
